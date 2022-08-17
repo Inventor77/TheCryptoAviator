@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+#world {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	background: linear-gradient(#e4e0ba, #f7d9aa);
+}
