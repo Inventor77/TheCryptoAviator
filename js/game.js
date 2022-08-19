@@ -1,3 +1,6 @@
+// Container
+const container = document.getElementById("world");
+
 // Scene
 const scene = new Three.Scene();
 
@@ -24,3 +27,11 @@ camera.position.x = 0;
 camera.position.z = 200;
 camera.position.y = 100;
 
+// Renderer
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+function createScene() {
+	renderer.setSize(WIDTH, HEIGHT);
+	renderer.shadowMap.enabled = true;
+	container.appendChild(renderer.domElement);
+}
