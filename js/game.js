@@ -35,3 +35,9 @@ function createScene() {
 	renderer.shadowMap.enabled = true;
 	container.appendChild(renderer.domElement);
 }
+
+function initialize(event) {
+	createScene();
+}
+
+window.addEventListener("load", initialize, false);
