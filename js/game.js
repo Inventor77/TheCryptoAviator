@@ -1,5 +1,6 @@
 import Sea from "./gameComponents/Sea.js";
 import Sky from "./gameComponents/Sky.js";
+import AirPlane from "./gameComponents/Plane/AirPlane.js";
 
 // Container
 const container = document.getElementById("world");
@@ -89,6 +90,14 @@ function createSky() {
 	scene.add(sky.mesh);
 }
 
+// AIRPLANE
+const airplane = new AirPlane();
+function createPlane() {
+	airplane.mesh.scale.set(0.25, 0.25, 0.25);
+	airplane.mesh.position.y = 100;
+	scene.add(airplane.mesh);
+}
+
 // Looping Animation
 function loop() {
 	// Sea animation
@@ -106,12 +115,16 @@ function loop() {
 function initialize(event) {
 	// Setup scene
 	createScene();
+
 	// Add lights
 	createLights();
+
 	// Add game components
 	createSea();
 	createSky();
+	createPlane();
 
+	// Loop that will update the objects' positions and render the scene on each frame
 	loop();
 }
 
