@@ -90,6 +90,8 @@ function createSky() {
 function loop() {
 	// Sea animation
 	sea.mesh.rotation.z += 0.003;
+	// Sky animation
+	sky.mesh.rotation.z += 0.01;
 
 	// render the scene
 	renderer.render(scene, camera);
