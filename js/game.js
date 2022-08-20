@@ -44,6 +44,9 @@ function handleWindowResize() {
 
 // Create Scene
 function createScene() {
+	// Fog effect
+	scene.fog = new THREE.Fog(0xf7d9aa, 150, 800);
+
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.shadowMap.enabled = true;
 	container.appendChild(renderer.domElement);

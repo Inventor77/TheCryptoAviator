@@ -13,14 +13,14 @@ export default function Cloud() {
 	});
 
 	// duplicate the geometry a random number of times
-	const nBlocks = 5 + Math.floor(Math.random() * 3);
+	const nBlocks = 5 + Math.floor(Math.random() * 5);
     for (let i = 0; i < nBlocks; i++) {
         
 		// Mesh
 		const m = new THREE.Mesh(cube, material);
 
 		// The position and the rotation of each cube randomly
-		m.position.x = i * 15;
+		m.position.x = i * 8;
 		m.position.y = Math.random() * 10;
 		m.position.z = Math.random() * 10;
 		m.rotation.z = Math.random() * Math.PI * 2;
