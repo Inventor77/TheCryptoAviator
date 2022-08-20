@@ -70,12 +70,21 @@ function createLights() {
 }
 
 // SEA
+const sea = new Sea();
 function createSea() {
-	const sea = new Sea();
-
 	sea.mesh.position.y = -600;
-
 	scene.add(sea.mesh);
+}
+
+function loop() {
+	// Sea animation
+	sea.mesh.rotation.z += 0.003;
+	
+	// render the scene
+	renderer.render(scene, camera);
+
+	// call the loop function again
+	requestAnimationFrame(loop);
 }
 
 function initialize(event) {
@@ -85,6 +94,8 @@ function initialize(event) {
 	createLights();
 	// Add game components
 	createSea();
+
+	loop();
 }
 
 window.addEventListener("load", initialize, false);
