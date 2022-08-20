@@ -5,7 +5,7 @@ export default function Sky() {
 	this.mesh = new THREE.Object3D();
 
 	// Number of clouds to be scattered in the sky
-	this.nClouds = 30;
+	this.nClouds = 35;
 
 	// Distributing Clouds consistently in uniform angle
 	const stepAngle = (Math.PI * 2) / this.nClouds;
