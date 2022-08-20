@@ -1,4 +1,5 @@
 import Sea from "./gameComponents/Sea.js";
+import Sky from "./gameComponents/Sky.js";
 
 // Container
 const container = document.getElementById("world");
@@ -76,10 +77,18 @@ function createSea() {
 	scene.add(sea.mesh);
 }
 
+// SKY
+const sky = new Sky();
+function createSky() {
+	sky.mesh.position.y = -600;
+	scene.add(sky.mesh);
+}
+
+// Looping Animation
 function loop() {
 	// Sea animation
 	sea.mesh.rotation.z += 0.003;
-	
+
 	// render the scene
 	renderer.render(scene, camera);
 
@@ -94,6 +103,7 @@ function initialize(event) {
 	createLights();
 	// Add game components
 	createSea();
+	createSky();
 
 	loop();
 }

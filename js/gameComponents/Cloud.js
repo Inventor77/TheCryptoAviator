@@ -13,7 +13,7 @@ export default function Cloud() {
 	});
 
 	// duplicate the geometry a random number of times
-	const nBlocks = 5 + Math.floor(Math.random() * 7);
+	const nBlocks = 5 + Math.floor(Math.random() * 3);
     for (let i = 0; i < nBlocks; i++) {
         
 		// Mesh
