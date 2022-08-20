@@ -2,7 +2,7 @@
 const container = document.getElementById("world");
 
 // Scene
-const scene = new Three.Scene();
+const scene = new THREE.Scene();
 
 // Dimensions of Screen
 const HEIGHT = window.innerHeight;
