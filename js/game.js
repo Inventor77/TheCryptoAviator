@@ -1,3 +1,5 @@
+import { Sea } from "./gameComponents/Sea";
+
 // Container
 const container = document.getElementById("world");
 
@@ -67,8 +69,22 @@ function createLights() {
 	scene.add(shadowLight);
 }
 
+// SEA
+function createSea() {
+	const sea = new Sea();
+
+	sea.mesh.position.y = -600;
+
+	scene.add(sea.mesh);
+}
+
 function initialize(event) {
+	// Setup scene
 	createScene();
+	// Add lights
+	createLights();
+	// Add game components
+	createSea();
 }
 
 window.addEventListener("load", initialize, false);
