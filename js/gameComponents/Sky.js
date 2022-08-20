@@ -16,7 +16,7 @@ export default function Sky() {
 
 		// Rotation and the Position of each cloud;
 		const a = stepAngle * i; // Final angle of cloud
-		const h = 750 + Math.random() * 200; // Distance between the center of the axis and the cloud itself
+		const h = 800 + Math.random() * 200; // Distance between the center of the axis and the cloud itself
 
 		// Converting polar coordinates (angle, distance) into Cartesian coordinates (x, y)
 		cloud.mesh.position.y = Math.sin(a) * h;
@@ -26,7 +26,7 @@ export default function Sky() {
 		cloud.mesh.rotation.z = a + Math.PI / 2;
 
 		// Position the clouds at random depths inside of the scene
-		cloud.mesh.position.z = -400 - Math.random() * 400;
+		cloud.mesh.position.z = -200 - Math.random() * 400;
 
 		// Random scale for each cloud
 		const s = 1 + Math.random() * 2;
