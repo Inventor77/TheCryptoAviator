@@ -35,6 +35,8 @@ const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
 function handleWindowResize() {
 	// Updating height and width of the renderer and the camera
+	HEIGHT = window.innerHeight;
+	WIDTH = window.innerWidth;
 	renderer.setSize(WIDTH, HEIGHT);
 	camera.aspect = WIDTH / HEIGHT;
 	camera.updateProjectionMatrix();
