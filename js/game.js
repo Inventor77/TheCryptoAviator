@@ -1,4 +1,4 @@
-import { Sea } from "./gameComponents/Sea";
+import Sea from "./gameComponents/Sea.js";
 
 // Container
 const container = document.getElementById("world");

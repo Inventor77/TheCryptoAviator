@@ -1,11 +1,10 @@
-import { Colors } from "../utils/colors";
+import { Colors } from "../utils/colors.js";
 
-export function Sea() {
+export default function Sea() {
 	// Cylinder Geometry;
 	const seaGeometry = new THREE.CylinderGeometry(600, 600, 800, 40, 10); // the parameters are: radius top, radius bottom, height, number of segments on the radius, number of segments vertically
-
 	// rotate the geometry on the x axis
-	seaGeometry.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
+	seaGeometry.applyMatrix4(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
 
 	// Material
 	const seaMaterial = new THREE.MeshPhongMaterial({
