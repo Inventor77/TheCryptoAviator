@@ -30,10 +30,20 @@ camera.position.y = 100;
 // Renderer
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
+function handleWindowResize() {
+	// Updating height and width of the renderer and the camera
+	renderer.setSize(WIDTH, HEIGHT);
+	camera.aspect = WIDTH / HEIGHT;
+	camera.updateProjectionMatrix();
+}
+
+// Create Scene
 function createScene() {
 	renderer.setSize(WIDTH, HEIGHT);
 	renderer.shadowMap.enabled = true;
 	container.appendChild(renderer.domElement);
+
+	window.addEventListener("resize", handleWindowResize, false);
 }
 
 function initialize(event) {
