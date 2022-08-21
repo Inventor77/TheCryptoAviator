@@ -21,6 +21,10 @@ const fieldOfView = 60;
 const nearPlane = 1;
 const farPlane = 10000;
 
+// Game Variables
+let newTime = new Date().getTime();
+let oldTime = new Date().getTime();
+
 // Camera
 const camera = new THREE.PerspectiveCamera(
 	fieldOfView,
@@ -126,8 +130,16 @@ function normalize(v, vmin, vmax, tmin, tmax) {
 
 // Looping Animation
 function loop() {
+	newTime = new Date().getTime();
+	const deltaTime = newTime - oldTime;
+	oldTime = newTime;
+	
 	// Sea animation
 	sea.mesh.rotation.z += 0.003;
+	if (sea.mesh.rotation.z > 2 * Math.PI) {
+		sea.mesh.rotation.z -= 2 * Math.PI;
+	}
+	sea.tick(deltaTime);
 	// Sky animation
 	sky.mesh.rotation.z += 0.01;
 
