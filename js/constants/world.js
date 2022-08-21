@@ -1,9 +1,9 @@
 export const world = {
 	speed: 0,
-	
+
 	// Sea
 	seaRadius: 600,
-	seaLength: 800,
+	seaLength: 750,
 	wavesMinAmp: 5,
 	wavesMaxAmp: 20,
 	wavesMinSpeed: 0.001,

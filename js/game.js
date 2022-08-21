@@ -145,12 +145,15 @@ function loop() {
 
 	// Sky animation
 	sky.mesh.rotation.z += 0.01;
+	
+	// Updated Plane movements
+	updatePlane();
+
+	// Cloud movement
+	sky.moveClouds(deltaTime);
 
 	// render the scene
 	renderer.render(scene, camera);
-
-	// Updated Plane movements
-	updatePlane();
 
 	// call the loop function again
 	requestAnimationFrame(loop);

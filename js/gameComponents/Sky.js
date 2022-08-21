@@ -41,7 +41,7 @@ export default function Sky() {
 		this.moveClouds = (deltaTime) => {
 			for (let i = 0; i < this.nClouds; i++) {
 				const c = this.clouds[i];
-				c.rotate();
+				c.rotate;
 			}
 			this.mesh.rotation.z += world.speed * deltaTime;
 		};
