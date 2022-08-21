@@ -1,4 +1,5 @@
 import Cloud from "./Cloud.js";
+import { world } from "../constants/world.js";
 
 export default function Sky() {
 	// Empty container
@@ -7,16 +8,18 @@ export default function Sky() {
 	// Number of clouds to be scattered in the sky
 	this.nClouds = 35;
 
+	this.clouds = [];
+
 	// Distributing Clouds consistently in uniform angle
 	const stepAngle = (Math.PI * 2) / this.nClouds;
 
 	// Clouds
 	for (let i = 0; i < this.nClouds; i++) {
 		const cloud = new Cloud();
-
+		this.clouds.push(cloud);
 		// Rotation and the Position of each cloud;
 		const a = stepAngle * i; // Final angle of cloud
-		const h = 800 + Math.random() * 200; // Distance between the center of the axis and the cloud itself
+		const h = world.seaLength + Math.random() * 200; // Distance between the center of the axis and the cloud itself
 
 		// Converting polar coordinates (angle, distance) into Cartesian coordinates (x, y)
 		cloud.mesh.position.y = Math.sin(a) * h;
@@ -26,7 +29,7 @@ export default function Sky() {
 		cloud.mesh.rotation.z = a + Math.PI / 2;
 
 		// Position the clouds at random depths inside of the scene
-		cloud.mesh.position.z = -200 - Math.random() * 400;
+		cloud.mesh.position.z = -300 - Math.random() * 500;
 
 		// Random scale for each cloud
 		const s = 1 + Math.random() * 2;

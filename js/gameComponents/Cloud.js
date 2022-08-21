@@ -35,5 +35,14 @@ export default function Cloud() {
 
 		// Add the cube to the container we first created
 		this.mesh.add(m);
+
+		this.rotate = () => {
+			const l = this.mesh.children.length;
+			for (let i = 0; i < l; i++) {
+				const m = this.mesh.children[i];
+				m.rotation.z += Math.random() * 0.005 * (i + 1);
+				m.rotation.y += Math.random() * 0.002 * (i + 1);
+			}
+		}
 	}
 }

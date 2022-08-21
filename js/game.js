@@ -1,6 +1,7 @@
 import Sea from "./gameComponents/Sea.js";
 import Sky from "./gameComponents/Sky.js";
 import AirPlane from "./gameComponents/Plane/AirPlane.js";
+import { world } from "./constants/world.js";
 
 // Container
 const container = document.getElementById("world");
@@ -18,7 +19,7 @@ const aspectRatio = WIDTH / HEIGHT;
 
 // Plane related variables
 const fieldOfView = 60;
-const nearPlane = 1;
+const nearPlane = 0.1;
 const farPlane = 10000;
 
 // Game Variables
@@ -36,7 +37,7 @@ const camera = new THREE.PerspectiveCamera(
 // Position of the camera
 camera.position.x = 0;
 camera.position.z = 200;
-camera.position.y = 100;
+camera.position.y = world.planeDefaultHeight;
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
