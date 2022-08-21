@@ -108,8 +108,9 @@ function updatePlane() {
 	const targetY = normalize(mousePos.y, -1, 1, 25, 175); // between 25 and 175 on the vertical axis
 
 	// update the airplane's position
-	airplane.mesh.position.y = targetY;
-	airplane.mesh.position.x = targetX;
+	airplane.mesh.position.y += (targetY - airplane.mesh.position.y) * 0.1;
+	airplane.mesh.rotation.z = (targetY - airplane.mesh.position.y) * 0.0128;
+	airplane.mesh.rotation.x = (airplane.mesh.position.y - targetY) * 0.0064;
 	// Rotate the propeller, the sea and the sky
 	airplane.rotate();
 }
