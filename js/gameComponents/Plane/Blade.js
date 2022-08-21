@@ -6,7 +6,7 @@ export default function Blade() {
 	const bladeGeometry = new THREE.BoxGeometry(1, 100, 20, 1, 1, 1);
 	const bladeMaterial = new THREE.MeshPhongMaterial({
 		color: Colors.brownDark,
-		shading: THREE.FlatShading,
+		flatShading: true,
 	});
 	const blade = new THREE.Mesh(bladeGeometry, bladeMaterial);
 	blade.position.set(8, 0, 0);

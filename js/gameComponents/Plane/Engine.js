@@ -6,7 +6,7 @@ export default function Engine() {
 	const engineGeometry = new THREE.BoxGeometry(20, 50, 50, 1, 1, 1);
 	const engineMaterial = new THREE.MeshPhongMaterial({
 		color: Colors.white,
-		shading: THREE.FlatShading,
+		flatShading: true,
 	});
 	const engine = new THREE.Mesh(engineGeometry, engineMaterial);
 	engine.position.x = 40;

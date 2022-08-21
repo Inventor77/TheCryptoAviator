@@ -7,7 +7,7 @@ export default function Propeller() {
 	const propellerGeometry = new THREE.BoxGeometry(20, 10, 10, 1, 1, 1);
 	const propellerMaterial = new THREE.MeshPhongMaterial({
 		color: Colors.brown,
-		shading: THREE.FlatShading,
+		flatShading: true,
 	});
 	const propeller = new THREE.Mesh(propellerGeometry, propellerMaterial);
 	propeller.castShadow = true;

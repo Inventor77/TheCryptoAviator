@@ -6,7 +6,7 @@ export default function Tail() {
 	const tailGeometry = new THREE.BoxGeometry(15, 20, 5, 1, 1, 1);
 	const tailMaterial = new THREE.MeshPhongMaterial({
 		color: Colors.red,
-		shading: THREE.FlatShading,
+		flatShading: true,
 	});
 	const tail = new THREE.Mesh(tailGeometry, tailMaterial);
 	tail.position.set(-35, 25, 0);

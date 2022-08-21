@@ -6,7 +6,7 @@ export default function SideWing() {
 	const sideWingGeometry = new THREE.BoxGeometry(40, 8, 150, 1, 1, 1);
 	const sideWingMaterial = new THREE.MeshPhongMaterial({
 		color: Colors.red,
-		shading: THREE.FlatShading,
+		flatShading: true,
 	});
 	const sideWing = new THREE.Mesh(sideWingGeometry, sideWingMaterial);
 	sideWing.castShadow = true;
