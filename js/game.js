@@ -61,6 +61,7 @@ function createScene() {
 // Light Variables
 const hemisphereLight = new THREE.HemisphereLight(0xaaaaaa, 0x000000, 0.9); // the first parameter is the sky color, the second parameter is the ground color
 const shadowLight = new THREE.DirectionalLight(0xffffff, 0.9); // The sun
+const ambientLight = new THREE.AmbientLight(0xdc8874, 0.5);
 
 // Create Lights
 function createLights() {
@@ -77,6 +78,7 @@ function createLights() {
 
 	scene.add(hemisphereLight);
 	scene.add(shadowLight);
+	scene.add(ambientLight);
 }
 
 // SEA
