@@ -1,5 +1,5 @@
 import { Colors, COLOR_SEA_LEVEL } from "../utils/colors.js";
-import { world } from "../contants/world.js";
+import { world } from "../constants/world.js";
 
 export default function Sea() {
 	// Cylinder Geometry;
