@@ -1,4 +1,6 @@
 export const world = {
+	speed: 0,
+	
 	// Sea
 	seaRadius: 600,
 	seaLength: 800,

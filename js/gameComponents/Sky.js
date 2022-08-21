@@ -43,7 +43,7 @@ export default function Sky() {
 				const c = this.clouds[i];
 				c.rotate();
 			}
-			this.mesh.rotation.z += game.speed * deltaTime;
+			this.mesh.rotation.z += world.speed * deltaTime;
 		};
 	}
 }
