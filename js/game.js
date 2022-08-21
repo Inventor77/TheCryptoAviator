@@ -101,6 +101,26 @@ function createPlane() {
 	scene.add(airplane.mesh);
 }
 
+function updatePlane() {
+	const targetX = normalize(mousePos.x, -1, 1, -100, 100); // To move airplane between -100 and 100 on the horizontal axis
+	const targetY = normalize(mousePos.y, -1, 1, 25, 175); // between 25 and 175 on the vertical axis
+
+	// update the airplane's position
+	airplane.mesh.position.y = targetY;
+	airplane.mesh.position.x = targetX;
+	// Rotate the propeller, the sea and the sky
+	airplane.rotate();
+}
+
+function normalize(v, vmin, vmax, tmin, tmax) {
+	const nv = Math.max(Math.min(v, vmax), vmin);
+	const dv = vmax - vmin;
+	const pc = (nv - vmin) / dv;
+	const dt = tmax - tmin;
+	const tv = tmin + pc * dt;
+	return tv;
+}
+
 // Looping Animation
 function loop() {
 	// Sea animation
@@ -111,11 +131,19 @@ function loop() {
 	// render the scene
 	renderer.render(scene, camera);
 
-	// Rotate the propeller, the sea and the sky
-	airplane.rotate();
+	// Updated Plane movements
+	updatePlane();
 
 	// call the loop function again
 	requestAnimationFrame(loop);
+}
+
+function handleMouseMove(event) {
+	const tx = -1 + (event.clientX / WIDTH) * 2; // The horizontal axis
+	const ty = 1 - (event.clientY / HEIGHT) * 2; // The vertical axis
+
+	mousePos.x = tx;
+	mousePos.y = ty;
 }
 
 function initialize(event) {
@@ -129,6 +157,9 @@ function initialize(event) {
 	createSea();
 	createSky();
 	createPlane();
+
+	//  Capture Mouse Movement
+	document.addEventListener("mousemove", handleMouseMove, false);
 
 	// Loop that will update the objects' positions and render the scene on each frame
 	loop();
