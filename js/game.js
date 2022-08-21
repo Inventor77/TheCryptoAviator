@@ -5,6 +5,9 @@ import AirPlane from "./gameComponents/Plane/AirPlane.js";
 // Container
 const container = document.getElementById("world");
 
+// Mouse Position
+const mousePos = { x: 0, y: 0 };
+
 // Scene
 const scene = new THREE.Scene();
 
