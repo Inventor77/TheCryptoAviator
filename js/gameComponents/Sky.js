@@ -29,7 +29,7 @@ export default function Sky() {
 		cloud.mesh.rotation.z = a + Math.PI / 2;
 
 		// Position the clouds at random depths inside of the scene
-		cloud.mesh.position.z = -300 - Math.random() * 500;
+		cloud.mesh.position.z = -200 - Math.random() * 400;
 
 		// Random scale for each cloud
 		const s = 1 + Math.random() * 2;
@@ -37,5 +37,13 @@ export default function Sky() {
 
 		// Adding mesh of each cloud in the scene
 		this.mesh.add(cloud.mesh);
+
+		this.moveClouds = (deltaTime) => {
+			for (let i = 0; i < this.nClouds; i++) {
+				const c = this.clouds[i];
+				c.rotate();
+			}
+			this.mesh.rotation.z += game.speed * deltaTime;
+		};
 	}
 }
