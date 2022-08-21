@@ -133,13 +133,15 @@ function loop() {
 	newTime = new Date().getTime();
 	const deltaTime = newTime - oldTime;
 	oldTime = newTime;
-	
+
 	// Sea animation
 	sea.mesh.rotation.z += 0.003;
 	if (sea.mesh.rotation.z > 2 * Math.PI) {
 		sea.mesh.rotation.z -= 2 * Math.PI;
 	}
 	sea.tick(deltaTime);
+	sea.updateColor();
+
 	// Sky animation
 	sky.mesh.rotation.z += 0.01;
 

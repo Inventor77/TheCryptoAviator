@@ -55,4 +55,13 @@ export default function Sea() {
 		}
 		this.mesh.geometry.attributes.position.needsUpdate = true;
 	};
+
+	this.updateColor = () => {
+		this.mesh.material = new THREE.MeshPhongMaterial({
+			color: COLOR_SEA_LEVEL[3 % COLOR_SEA_LEVEL.length],
+			transparent: true,
+			opacity: 0.8,
+			flatShading: true,
+		});
+	};
 }
