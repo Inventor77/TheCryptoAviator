@@ -9,8 +9,8 @@ const container = document.getElementById("world");
 const scene = new THREE.Scene();
 
 // Dimensions of Screen
-const HEIGHT = window.innerHeight;
-const WIDTH = window.innerWidth;
+let HEIGHT = window.innerHeight;
+let WIDTH = window.innerWidth;
 const aspectRatio = WIDTH / HEIGHT;
 
 // Plane related variables
@@ -110,7 +110,7 @@ function loop() {
 
 	// Rotate the propeller, the sea and the sky
 	airplane.rotate();
-	
+
 	// call the loop function again
 	requestAnimationFrame(loop);
 }
