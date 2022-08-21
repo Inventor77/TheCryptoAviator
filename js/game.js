@@ -108,6 +108,9 @@ function loop() {
 	// render the scene
 	renderer.render(scene, camera);
 
+	// Rotate the propeller, the sea and the sky
+	airplane.rotate();
+	
 	// call the loop function again
 	requestAnimationFrame(loop);
 }

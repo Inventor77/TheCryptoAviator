@@ -1,4 +1,3 @@
-import { Colors } from "../../utils/colors.js";
 import Cockpit from "./Cockpit.js";
 import Engine from "./Engine.js";
 import Propeller from "./Propeller.js";
@@ -21,10 +20,12 @@ export default function AirPlane() {
 	this.mesh.add(tail.mesh);
 
 	// Create the wing
-    const sideWing = new SideWing();
+	const sideWing = new SideWing();
 	this.mesh.add(sideWing.mesh);
 
 	// propeller
-    const propeller = new Propeller();
-    this.mesh.add(propeller.mesh);
+	const propeller = new Propeller();
+	this.mesh.add(propeller.mesh);
+
+	this.rotate = () => (propeller.mesh.rotation.x += 0.3);
 }
