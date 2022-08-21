@@ -27,5 +27,5 @@ export default function AirPlane() {
 	const propeller = new Propeller();
 	this.mesh.add(propeller.mesh);
 
-	this.rotate = () => (propeller.mesh.rotation.x += 0.3);
+	this.rotate = () => (propeller.mesh.rotation.x += 0.5);
 }
