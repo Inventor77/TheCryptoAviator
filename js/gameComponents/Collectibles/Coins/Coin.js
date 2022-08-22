@@ -4,7 +4,7 @@ export default function Coin() {
 		color: 0x009999,
 		shininess: 0,
 		specular: 0xffffff,
-		shading: THREE.FlatShading,
+		flatShading: true,
 	});
 	this.mesh = new THREE.Mesh(coinGeometry, coinMaterial);
 	this.mesh.castShadow = true;

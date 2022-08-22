@@ -1,6 +1,7 @@
 import Sea from "./gameComponents/Sea.js";
 import Sky from "./gameComponents/Sky.js";
 import AirPlane from "./gameComponents/Plane/AirPlane.js";
+import CoinsHolder from "./gameComponents/Collectibles/Coins/CoinsHolder.js";
 import { world } from "./constants/world.js";
 
 // Container
@@ -108,6 +109,21 @@ function createPlane() {
 	scene.add(airplane.mesh);
 }
 
+// COINS
+const coinsHolder = new CoinsHolder(20);
+function createCoins() {
+	scene.add(coinsHolder.mesh);
+}
+
+function normalize(v, vmin, vmax, tmin, tmax) {
+	const nv = Math.max(Math.min(v, vmax), vmin);
+	const dv = vmax - vmin;
+	const pc = (nv - vmin) / dv;
+	const dt = tmax - tmin;
+	const tv = tmin + pc * dt;
+	return tv;
+}
+
 function updatePlane() {
 	const targetX = normalize(mousePos.x, -1, 1, -100, 100); // To move airplane between -100 and 100 on the horizontal axis
 	const targetY = normalize(mousePos.y, -1, 1, 25, 175); // between 25 and 175 on the vertical axis
@@ -118,15 +134,6 @@ function updatePlane() {
 	airplane.mesh.rotation.x = (airplane.mesh.position.y - targetY) * 0.0064;
 	// Rotate the propeller, the sea and the sky
 	airplane.rotate();
-}
-
-function normalize(v, vmin, vmax, tmin, tmax) {
-	const nv = Math.max(Math.min(v, vmax), vmin);
-	const dv = vmax - vmin;
-	const pc = (nv - vmin) / dv;
-	const dt = tmax - tmin;
-	const tv = tmin + pc * dt;
-	return tv;
 }
 
 // Looping Animation
@@ -145,7 +152,7 @@ function loop() {
 
 	// Sky animation
 	sky.mesh.rotation.z += 0.01;
-	
+
 	// Updated Plane movements
 	updatePlane();
 
@@ -178,6 +185,7 @@ function initialize(event) {
 	createSea();
 	createSky();
 	createPlane();
+	createCoins();
 
 	//  Capture Mouse Movement
 	document.addEventListener("mousemove", handleMouseMove, false);
