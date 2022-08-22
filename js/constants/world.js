@@ -13,4 +13,8 @@ export const world = {
 	planeDefaultHeight: 100,
 	planeAmpHeight: 80,
 	planeAmpWidth: 75,
+
+	// Coins
+	coinsSpeed: 0.5,
+	coinDistanceTolerance: 15,
 };

@@ -34,14 +34,19 @@ export default function CoinsHolder(nCoins) {
 		}
 	};
 
-	this.rotateCoins = function () {
+	this.rotateCoins = function (
+		deltaTime,
+		airplane,
+		particlesHolder,
+		particlesPool
+	) {
 		for (let i = 0; i < this.coinsInUse.length; i++) {
 			let coin = this.coinsInUse[i];
 			if (coin.exploding) continue;
-			coin.angle += game.speed * deltaTime * game.coinsSpeed;
+			coin.angle += world.speed * deltaTime * world.coinsSpeed;
 			if (coin.angle > Math.PI * 2) coin.angle -= Math.PI * 2;
 			coin.mesh.position.y =
-				-game.seaRadius + Math.sin(coin.angle) * coin.distance;
+				-world.seaRadius + Math.sin(coin.angle) * coin.distance;
 			coin.mesh.position.x = Math.cos(coin.angle) * coin.distance;
 			coin.mesh.rotation.z += Math.random() * 0.1;
 			coin.mesh.rotation.y += Math.random() * 0.1;
@@ -50,14 +55,15 @@ export default function CoinsHolder(nCoins) {
 				.clone()
 				.sub(coin.mesh.position.clone());
 			const d = diffPos.length();
-			if (d < game.coinDistanceTolerance) {
+			if (d < world.coinDistanceTolerance) {
 				this.coinsPool.unshift(this.coinsInUse.splice(i, 1)[0]);
 				this.mesh.remove(coin.mesh);
 				particlesHolder.spawnParticles(
 					coin.mesh.position.clone(),
 					5,
 					0x009999,
-					0.8
+					0.8,
+					particlesPool
 				);
 				addEnergy();
 				i--;
