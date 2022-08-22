@@ -65,7 +65,7 @@ export default function CoinsHolder(nCoins) {
 					0.8,
 					particlesPool
 				);
-				addEnergy();
+				// addEnergy();	
 				i--;
 			} else if (coin.angle > Math.PI) {
 				this.coinsPool.unshift(this.coinsInUse.splice(i, 1)[0]);

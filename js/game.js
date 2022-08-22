@@ -171,6 +171,10 @@ function loop() {
 	// Updated Plane movements
 	updatePlane();
 
+	coinsHolder.spawnCoins();
+	// Rotate Coins
+	coinsHolder.rotateCoins(deltaTime, airplane, particlesHolder, particlesPool);
+
 	// Cloud movement
 	sky.moveClouds(deltaTime);
 
