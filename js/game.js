@@ -4,6 +4,8 @@ import AirPlane from "./gameComponents/Plane/AirPlane.js";
 import CoinsHolder from "./gameComponents/Collectibles/Coins/CoinsHolder.js";
 import Particle from "./gameComponents/Collectibles/Particles/Particle.js";
 import ParticlesHolder from "./gameComponents/Collectibles/Particles/ParticlesHolder.js";
+import Obstacle from "./gameComponents/Collectibles/Obstacles/Obstacle.js";
+import ObstacleHolder from "./gameComponents/Collectibles/Obstacles/ObstacleHolder.js";
 import { world } from "./constants/world.js";
 
 // Container
@@ -29,8 +31,8 @@ const farPlane = 10000;
 let newTime = new Date().getTime();
 let oldTime = new Date().getTime();
 let deltaTime = 0;
+const obstaclesPool = [];
 const particlesPool = [];
-const particlesInUse = [];
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -120,6 +122,16 @@ function createCoins() {
 	scene.add(coinsHolder.mesh);
 }
 
+// OBSTACLES
+const obstacleHolder = new ObstacleHolder();
+function createObstacles() {
+	for (let i = 0; i < 10; i++) {
+		const obstacle = new Obstacle();
+		obstaclesPool.push(obstacle);
+	}
+	scene.add(obstacleHolder.mesh);
+}
+
 // PARTICLES
 const particlesHolder = new ParticlesHolder();
 function createParticles() {
@@ -172,8 +184,16 @@ function loop() {
 	updatePlane();
 
 	coinsHolder.spawnCoins();
+	obstacleHolder.spawnObstacles(obstaclesPool);
 	// Rotate Coins
 	coinsHolder.rotateCoins(deltaTime, airplane, particlesHolder, particlesPool);
+	obstaclesPool;
+	obstacleHolder.rotateObstacles(
+		deltaTime,
+		airplane,
+		particlesHolder,
+		obstaclesPool
+	);
 
 	// Cloud movement
 	sky.moveClouds(deltaTime);
@@ -205,6 +225,7 @@ function initialize(event) {
 	createSky();
 	createPlane();
 	createCoins();
+	createObstacles();
 	createParticles();
 
 	//  Capture Mouse Movement

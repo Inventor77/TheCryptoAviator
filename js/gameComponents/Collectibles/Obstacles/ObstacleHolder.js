@@ -1,6 +1,6 @@
-import Obstacle from "./Obstacle";
-import { world } from "../../../constants/world";
-import { Colors } from "../../../utils/colors";
+import Obstacle from "./Obstacle.js";
+import { world } from "../../../constants/world.js";
+import { Colors } from "../../../utils/colors.js";
 
 export default function ObstacleHolder() {
 	this.mesh = new THREE.Object3D();

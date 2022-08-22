@@ -25,10 +25,26 @@ export const world = {
 	planeAmpHeight: 80,
 	planeAmpWidth: 75,
 
+	// Plane speed
+	planeMinSpeed: 1.2,
+	planeMaxSpeed: 1.6,
+	planeSpeed: 0,
+	planeCollisionDisplacementX: 0,
+	planeCollisionSpeedX: 0,
+	planeCollisionDisplacementY: 0,
+	planeCollisionSpeedY: 0,
+
 	// Coins
 	coinsSpeed: 0.5,
 	coinDistanceTolerance: 15,
 	coinValue: 3,
 	coinLastSpawn: 0,
 	distanceForCoinsSpawn: 100,
+
+	// Obstacle
+	obstacleDistanceTolerance: 10,
+	obstacleValue: 10,
+	obstaclesSpeed: 0.6,
+	obstacleLastSpawn: 0,
+	distanceForObstaclesSpawn: 50,
 };
