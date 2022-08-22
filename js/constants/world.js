@@ -1,5 +1,11 @@
 export const world = {
 	speed: 0,
+	status: "playing",
+
+	distance: 0,
+	ratioSpeedDistance: 50,
+	energy: 100,
+	ratioSpeedEnergy: 3,
 
 	// Sea
 	seaRadius: 600,
@@ -17,4 +23,7 @@ export const world = {
 	// Coins
 	coinsSpeed: 0.5,
 	coinDistanceTolerance: 15,
+	coinValue: 3,
+	coinLastSpawn: 0,
+	distanceForCoinsSpawn: 100,
 };
