@@ -11,4 +11,6 @@ export const world = {
 
 	// Plane
 	planeDefaultHeight: 100,
+	planeAmpHeight: 80,
+	planeAmpWidth: 75,
 };

@@ -8,7 +8,7 @@ export default function Particle() {
 	});
 	this.mesh = new THREE.Mesh(particleGeometry, particleMaterial);
 
-	this.explode = function (pos, color, scale) {
+	this.explode = function (pos, color, scale, particlesPool) {
 		const _this = this;
 		const _p = this.mesh.parent;
 		this.mesh.material.color = new THREE.Color(color);

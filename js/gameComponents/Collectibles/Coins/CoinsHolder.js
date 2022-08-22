@@ -1,4 +1,5 @@
 import Coin from "./Coin.js";
+import { world } from "../../../constants/world.js";
 
 export default function CoinsHolder(nCoins) {
 	this.mesh = new THREE.Object3D();
@@ -12,9 +13,9 @@ export default function CoinsHolder(nCoins) {
 	this.spawnCoins = function () {
 		const nCoins = 1 + Math.floor(Math.random() * 10);
 		const d =
-			game.seaRadius +
-			game.planeDefaultHeight +
-			(-1 + Math.random() * 2) * (game.planeAmpHeight - 20);
+			world.seaRadius +
+			world.planeDefaultHeight +
+			(-1 + Math.random() * 2) * (world.planeAmpHeight - 20);
 		const amplitude = 10 + Math.round(Math.random() * 10);
 		for (let i = 0; i < nCoins; i++) {
 			let coin;
@@ -28,7 +29,7 @@ export default function CoinsHolder(nCoins) {
 			coin.angle = -(i * 0.02);
 			coin.distance = d + Math.cos(i * 0.5) * amplitude;
 			coin.mesh.position.y =
-				-game.seaRadius + Math.sin(coin.angle) * coin.distance;
+				-world.seaRadius + Math.sin(coin.angle) * coin.distance;
 			coin.mesh.position.x = Math.cos(coin.angle) * coin.distance;
 		}
 	};

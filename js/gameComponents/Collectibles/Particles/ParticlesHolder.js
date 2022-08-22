@@ -1,10 +1,10 @@
-import Particle from "./Particle";
+import Particle from "./Particle.js";
 
 export default function ParticlesHolder() {
 	this.mesh = new THREE.Object3D();
 	this.particlesInUse = [];
 
-	this.spawnParticles = function (pos, density, color, scale) {
+	this.spawnParticles = function (pos, density, color, scale, particlesPool) {
 		const nPArticles = density;
 		for (let i = 0; i < nPArticles; i++) {
 			let particle;
@@ -18,7 +18,7 @@ export default function ParticlesHolder() {
 			const _this = this;
 			particle.mesh.position.y = pos.y;
 			particle.mesh.position.x = pos.x;
-			particle.explode(pos, color, scale);
+			particle.explode(pos, color, scale, particlesPool);
 		}
 	};
 }

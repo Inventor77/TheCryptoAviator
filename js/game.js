@@ -2,6 +2,8 @@ import Sea from "./gameComponents/Sea.js";
 import Sky from "./gameComponents/Sky.js";
 import AirPlane from "./gameComponents/Plane/AirPlane.js";
 import CoinsHolder from "./gameComponents/Collectibles/Coins/CoinsHolder.js";
+import Particle from "./gameComponents/Collectibles/Particles/Particle.js";
+import ParticlesHolder from "./gameComponents/Collectibles/Particles/ParticlesHolder.js";
 import { world } from "./constants/world.js";
 
 // Container
@@ -26,6 +28,9 @@ const farPlane = 10000;
 // Game Variables
 let newTime = new Date().getTime();
 let oldTime = new Date().getTime();
+let deltaTime = 0;
+const particlesPool = [];
+const particlesInUse = [];
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
@@ -115,6 +120,16 @@ function createCoins() {
 	scene.add(coinsHolder.mesh);
 }
 
+// PARTICLES
+const particlesHolder = new ParticlesHolder();
+function createParticles() {
+	for (var i = 0; i < 10; i++) {
+		const particle = new Particle();
+		particlesPool.push(particle);
+	}
+	scene.add(particlesHolder.mesh);
+}
+
 function normalize(v, vmin, vmax, tmin, tmax) {
 	const nv = Math.max(Math.min(v, vmax), vmin);
 	const dv = vmax - vmin;
@@ -186,6 +201,7 @@ function initialize(event) {
 	createSky();
 	createPlane();
 	createCoins();
+	createParticles();
 
 	//  Capture Mouse Movement
 	document.addEventListener("mousemove", handleMouseMove, false);
