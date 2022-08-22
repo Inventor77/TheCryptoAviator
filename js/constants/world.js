@@ -7,6 +7,11 @@ export const world = {
 	energy: 100,
 	ratioSpeedEnergy: 3,
 
+	// Level
+	level: 1,
+	levelLastUpdate: 0,
+	distanceForLevelUpdate: 1000,
+
 	// Sea
 	seaRadius: 600,
 	seaLength: 750,
